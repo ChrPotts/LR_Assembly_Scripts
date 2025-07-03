@@ -163,3 +163,51 @@ To see usage instructions in the terminal, just run:
 ./medaka.sh
 ```
 ---
+
+## Saving Script Output to a Log File
+
+To record all output (both standard output and error messages) from a script into a single `.log` file, you can use the following syntax:
+
+```bash
+bash script_name.sh > output.log 2>&1
+```
+
+- `>` redirects **standard output** (stdout) to the file.
+- `2>&1` ensures that **standard error** (stderr) is also redirected to the same file.
+
+### Example:
+
+```bash
+bash assembly.sh > assembly.log 2>&1
+```
+
+This command will run `assembly.sh` and save **everything it prints**—including errors—to `assembly.log`.
+
+** IMPORTANT WARNING **
+Using the above commands will __instantly__ and __permanently__ delete any previous log files with the same pathname. If you want to run the script again, but want to preserve the results and .log file from a previous run, you should copy the starting files into a new directory. 
+
+Most of the time, if you need to re-run the scripts, it is because the assembly didn't work the first time. In which case, re-running it with different parameters in the same directory and overwriting the previous files is desired anyway.
+
+---
+
+## Watching the Log File in Real Time
+
+If you want to watch the log file as it's being written to (for example, to monitor progress or catch errors as they occur), use the `tail` command with the `-f` (follow) flag:
+
+```bash
+tail -f output.log
+```
+
+You can stop watching the log at any time by pressing `Ctrl + C`.
+
+---
+
+## Opening Log Files in the Terminal
+
+Once a run is complete, and you want to open a log filr, use the `less` command:
+
+```bash
+less output.log
+```
+
+---
