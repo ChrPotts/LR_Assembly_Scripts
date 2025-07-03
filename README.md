@@ -211,3 +211,16 @@ less output.log
 ```
 
 ---
+
+## Updating Your Local Repository with `git pull`
+
+If changes have been made to the GitHub repository by someone else, you need to update your local copy to implement those changes with:
+
+```bash
+git pull
+```
+
+This command **fetches the latest changes** from GitHub and **merges them into your local project**.
+
+Use `git pull` anytime you want to make sure your local files are up to date with the latest version on GitHub.
+
